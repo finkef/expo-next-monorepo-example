@@ -1,3 +1,4 @@
+import "react-native-tailwind.macro"
 import "../styles/global.scss"
 
 import "raf/polyfill"
@@ -6,6 +7,7 @@ global.setImmediate = requestAnimationFrame
 import "setimmediate"
 
 import { SafeAreaProvider } from "react-native-safe-area-context"
+import { GestureHandlerRootView } from "react-native-gesture-handler"
 import Head from "next/head"
 import { AppProps } from "next/app"
 
@@ -27,7 +29,9 @@ export default function App({ Component, pageProps }: AppProps) {
           frame: undefined as any,
         }}
       >
-        <Component {...pageProps} />
+        <GestureHandlerRootView tw="flex-1">
+          <Component {...pageProps} />
+        </GestureHandlerRootView>
       </SafeAreaProvider>
     </>
   )

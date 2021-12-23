@@ -4,7 +4,7 @@ Here is an example showing how to create a universal React app using Expo and Ne
 
 You'll find included:
 
-- Expo SDK 43 (with Hermes on iOS and Android)
+- Expo SDK 44 (with Hermes on iOS and Android)
 - Next.js 12
 - React Native for Web
 - react-native-tailwind.macro
