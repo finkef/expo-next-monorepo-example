@@ -23,5 +23,8 @@
         "STAGE": "development"
       }
     }
+  },
+  "cli": {
+    "version": ">= 0.38.3"
   }
 }

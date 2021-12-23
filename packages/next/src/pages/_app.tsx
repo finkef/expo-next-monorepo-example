@@ -1,16 +1,13 @@
-import '../styles/global.scss'
+import "../styles/global.scss"
 
-import 'raf/polyfill'
+import "raf/polyfill"
 // @ts-ignore
 global.setImmediate = requestAnimationFrame
-import 'setimmediate'
+import "setimmediate"
 
-import { SafeAreaProvider } from 'react-native-safe-area-context'
-import Head from 'next/head'
-import { AppProps } from 'next/app'
-import { DripsyProvider } from 'dripsy'
-
-import { theme } from 'app/theme'
+import { SafeAreaProvider } from "react-native-safe-area-context"
+import Head from "next/head"
+import { AppProps } from "next/app"
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -24,11 +21,14 @@ export default function App({ Component, pageProps }: AppProps) {
           name="viewport"
         />
       </Head>
-      <DripsyProvider theme={theme}>
-        <SafeAreaProvider>
-          <Component {...pageProps} />
-        </SafeAreaProvider>
-      </DripsyProvider>
+      <SafeAreaProvider
+        initialMetrics={{
+          insets: { top: 0, bottom: 0, left: 0, right: 0 },
+          frame: undefined as any,
+        }}
+      >
+        <Component {...pageProps} />
+      </SafeAreaProvider>
     </>
   )
 }

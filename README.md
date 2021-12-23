@@ -7,11 +7,11 @@ You'll find included:
 - Expo SDK 43 (with Hermes on iOS and Android)
 - Next.js 12
 - React Native for Web
+- react-native-tailwind.macro
 - TypeScript
 - Babel config that works for Expo and Next.js with Reanimated in a monorepo
 - Reanimated
 - React Native Bottom Sheet
-- Dripsy
 
 And ready-to-use (small configuration required):
 
