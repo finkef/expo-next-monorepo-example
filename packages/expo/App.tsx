@@ -4,8 +4,7 @@ import { enableScreens } from "react-native-screens"
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 import { StatusBar } from "expo-status-bar"
 import { SafeAreaProvider } from "react-native-safe-area-context"
-
-import { HelloWorld } from "app/hello-world"
+import { Navigation } from "app/navigation"
 
 enableScreens(true)
 
@@ -14,7 +13,7 @@ export default function App() {
     <SafeAreaProvider>
       <GestureHandlerRootView tw="flex-1">
         <StatusBar style="dark" />
-        <HelloWorld />
+        <Navigation />
       </GestureHandlerRootView>
     </SafeAreaProvider>
   )

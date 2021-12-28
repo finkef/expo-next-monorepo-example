@@ -1,6 +1,3 @@
-import "react-native-tailwind.macro"
-import { HelloWorld } from "app/hello-world"
+import { HomeNavigator } from "app/pages/home"
 
-export default function Page() {
-  return <HelloWorld />
-}
+export default HomeNavigator
