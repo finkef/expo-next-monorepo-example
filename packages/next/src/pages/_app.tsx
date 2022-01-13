@@ -1,4 +1,5 @@
 import "raf/polyfill"
+import "react-native-tailwind.macro"
 
 // @ts-ignore
 global.setImmediate = requestAnimationFrame
@@ -10,8 +11,13 @@ import Head from "next/head"
 import { AppProps } from "next/app"
 import { ServerContainer } from "../server-container"
 import { Navigation } from "app/navigation"
+import { Header, HeaderBackButton } from "@react-navigation/elements"
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps, router }: AppProps) {
+  const { backToUrl } = Component as any
+
+  const canGoBack = !!backToUrl
+
   return (
     <>
       <Head>
@@ -23,18 +29,35 @@ export default function App({ Component, pageProps }: AppProps) {
           name="viewport"
         />
       </Head>
-      <ServerContainer>
-        <SafeAreaProvider
-          initialMetrics={{
-            insets: { top: 0, bottom: 0, left: 0, right: 0 },
-            frame: undefined as any,
-          }}
-        >
-          <GestureHandlerRootView tw="flex-1">
-            <Navigation Component={Component} pageProps={pageProps} />
-          </GestureHandlerRootView>
-        </SafeAreaProvider>
-      </ServerContainer>
+      <SafeAreaProvider
+        initialMetrics={{
+          insets: { top: 0, bottom: 0, left: 0, right: 0 },
+          frame: undefined as any,
+        }}
+      >
+        <GestureHandlerRootView tw="flex-1">
+          <Header
+            title="Hello"
+            headerLeft={function headerLeft() {
+              const prevUrl =
+                typeof backToUrl == "function" ? backToUrl() : backToUrl
+              const onPress = () => {
+                if (canGoBack) {
+                  router.back()
+                } else {
+                  router.replace(prevUrl)
+                }
+              }
+              return (
+                (!!prevUrl || canGoBack) && (
+                  <HeaderBackButton onPress={onPress} />
+                )
+              )
+            }}
+          />
+          <Component {...pageProps} />
+        </GestureHandlerRootView>
+      </SafeAreaProvider>
     </>
   )
 }

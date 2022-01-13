@@ -13,7 +13,7 @@ export default function App() {
     <SafeAreaProvider>
       <GestureHandlerRootView tw="flex-1">
         <StatusBar style="dark" />
-        <Navigation />
+        {/* <Navigation /> */}
       </GestureHandlerRootView>
     </SafeAreaProvider>
   )

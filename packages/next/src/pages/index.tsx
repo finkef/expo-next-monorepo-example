@@ -1,3 +1,6 @@
-import { HomeNavigator } from "app/pages/home"
+import "react-native-tailwind.macro"
+import { HomeScreen } from "app/screens/home"
 
-export default HomeNavigator
+const Index = () => <HomeScreen />
+
+export default Index

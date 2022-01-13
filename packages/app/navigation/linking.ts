@@ -22,6 +22,7 @@ const homeStackPaths = makeType({
 export const linking: Props = {
   prefixes: [Linking.createURL("/")],
   config: {
+    initialRouteName: homeStackPaths.home,
     screens: {
       [homeStackPaths.home]: {
         path: "",

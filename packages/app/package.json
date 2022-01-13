@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "dependencies": {
-    "react-native-tailwind.macro": "^1.3.0"
+    "@react-navigation/elements": "^1.2.1",
+    "react-native-tailwind.macro": "^1.3.0",
+    "solito": "^0.0.3"
   }
 }

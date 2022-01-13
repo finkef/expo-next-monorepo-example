@@ -10,9 +10,12 @@ import { linking } from "app/navigation/linking"
 import { NextNavigationProps } from "app/navigation/types"
 import Router from "next/router"
 import { Platform } from "react-native"
-import { HomeNavigator } from "../pages/home"
+import { enableScreens, enableFreeze } from "react-native-screens"
 // import { ProfileNavigator } from "../pages/profile"
 // import { NextTabNavigator } from "app/navigation/next-tab-navigator"
+
+enableScreens()
+enableFreeze()
 
 export * from "./use-router"
 export * from "./create-stack-navigator"
@@ -80,12 +83,7 @@ export const Navigation = ({ Component, pageProps }: NextNavigationProps) => {
     >
       <LinkTo />
       <BottomSheetModalProvider>
-        {/* <Stack.Navigator>
-          <Stack.Screen name="home" component={HomeNavigator} />
-          <Stack.Screen name="profile" component={ProfileNavigator} />
-        </Stack.Navigator> */}
-
-        <HomeNavigator />
+        {/* <HomeNavigator /> */}
       </BottomSheetModalProvider>
     </NavigationContainer>
   )

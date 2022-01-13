@@ -1,6 +1,6 @@
-import { useCallback } from "react"
+import { useCallback, useContext } from "react"
 import { useRouter as useNextRouter, NextRouter } from "next/router"
-import { useLinkTo, useNavigation } from "@react-navigation/native"
+import { useLinkTo, NavigationContext } from "@react-navigation/native"
 
 const parseNextPath = (from: Parameters<NextRouter["push"]>[0]) => {
   let path = (typeof from == "string" ? from : from.pathname) || ""
@@ -36,7 +36,7 @@ const parseNextPath = (from: Parameters<NextRouter["push"]>[0]) => {
 export function useRouter() {
   const linkTo = useLinkTo()
   const router = useNextRouter()
-  const navigation = useNavigation()
+  const navigation = useContext(NavigationContext)
 
   return {
     push: useCallback(
